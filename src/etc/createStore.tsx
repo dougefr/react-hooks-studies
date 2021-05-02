@@ -4,9 +4,11 @@ type thunkAction<IAction> = (
   dispatch: React.Dispatch<IAction>
 ) => Promise<void>;
 
+type dispatchParam<IAction> = IAction | thunkAction<IAction>
+
 interface IStore<IState, IAction> {
   state: IState;
-  dispatch: React.Dispatch<IAction | thunkAction<IAction>>;
+  dispatch: React.Dispatch<dispatchParam<IAction>>;
 }
 
 interface IStateProviderProps {
@@ -42,7 +44,7 @@ const createStore = <IState, IAction>(
       persistedState ? JSON.parse(persistedState) : initialState
     );
 
-    const customDispatch = (action: IAction | thunkAction<IAction>) => {
+    const customDispatch = (action: dispatchParam<IAction>) => {
       if (typeof action === "function") {
         (action as thunkAction<IAction>)(customDispatch);
       } else {
