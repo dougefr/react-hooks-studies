@@ -8,15 +8,15 @@ import { StateProvider as TodoStateProvider } from "./todo/store";
 function App() {
   return (
     <div className="App">
-      <CounterStateProvider id="1">
+      <CounterStateProvider name="counter-1">
         <Counter />
       </CounterStateProvider>
       <hr />
-      <CounterStateProvider id="2">
+      <CounterStateProvider name="counter-2">
         <Counter />
       </CounterStateProvider>
       <hr />
-      <TodoStateProvider>
+      <TodoStateProvider name="todo">
         <Todo />
       </TodoStateProvider>
     </div>

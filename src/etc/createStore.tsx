@@ -9,8 +9,12 @@ interface IStore<IState, IAction> {
   dispatch: React.Dispatch<IAction | thunkAction<IAction>>;
 }
 
+interface IStateProviderProps {
+  name: string
+  children: React.ReactNode;
+}
+
 const createStore = <IState, IAction>(
-  name: string,
   initialState: IState,
   reducer: (state: IState, action: IAction) => IState
 ) => {
@@ -21,18 +25,15 @@ const createStore = <IState, IAction>(
   const { Provider } = store;
 
   const StateProvider = ({
+    name,
     children,
-    id,
-  }: {
-    children: React.ReactNode;
-    id?: string;
-  }) => {
+  }: IStateProviderProps) => {
     // Recupera o estado do local storage
-    const persistedState = window.localStorage.getItem(name + (id || ""));
+    const persistedState = window.localStorage.getItem(name);
 
     const customReducer = (state: IState, action: IAction): IState => {
       const newState = reducer(state, action);
-      window.localStorage.setItem(name + (id || ""), JSON.stringify(newState));
+      window.localStorage.setItem(name, JSON.stringify(newState));
       return newState;
     };
 
