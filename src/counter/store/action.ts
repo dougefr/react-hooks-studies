@@ -7,3 +7,8 @@ export const increment = () => ({
 export const decrement = () => ({
   type: ActionType.DECREMENT,
 });
+
+export const set = (value: number) => ({
+  type: ActionType.SET,
+  value
+});
