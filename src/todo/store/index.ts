@@ -3,7 +3,4 @@ import createStore from "../../etc/createStore";
 
 const initialState = { todos: [] };
 
-export const { StateProvider, store } = createStore(
-  initialState,
-  reducer
-);
+export const { StateProvider, store } = createStore(initialState, reducer);

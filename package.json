@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "pretty-quick --since HEAD~0"
+    "format": "pretty-quick --since 3c570030e6fa5496e71439d13722c748664e3a0c"
   },
   "eslintConfig": {
     "extends": [

@@ -10,5 +10,5 @@ export const decrement = () => ({
 
 export const set = (value: number) => ({
   type: ActionType.SET,
-  value
+  value,
 });

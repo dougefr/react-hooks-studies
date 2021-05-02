@@ -8,7 +8,7 @@ export const add = (text: string) => ({
 export const remove = (id: string) => ({
   type: ActionType.REMOVE,
   id,
-}); 
+});
 
 export const completed = (id: string) => ({
   type: ActionType.COMPLETED,
