@@ -15,8 +15,8 @@ const reducer = (state: IState, action: IAction): IState => {
       return { counter: state.counter + 1 };
     case ActionType.DECREMENT:
       return { counter: state.counter - 1 };
-      case ActionType.SET:
-        return { counter: action.value! }
+    case ActionType.SET:
+      return { counter: action.value! };
     default:
       return state;
   }

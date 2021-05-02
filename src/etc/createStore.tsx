@@ -4,7 +4,7 @@ type thunkAction<IAction> = (
   dispatch: React.Dispatch<IAction>
 ) => Promise<void>;
 
-type dispatchParam<IAction> = IAction | thunkAction<IAction>
+type dispatchParam<IAction> = IAction | thunkAction<IAction>;
 
 interface IStore<IState, IAction> {
   state: IState;
@@ -12,7 +12,7 @@ interface IStore<IState, IAction> {
 }
 
 interface IStateProviderProps {
-  name: string
+  name: string;
   children: React.ReactNode;
 }
 
@@ -26,10 +26,7 @@ const createStore = <IState, IAction>(
   });
   const { Provider } = store;
 
-  const StateProvider = ({
-    name,
-    children,
-  }: IStateProviderProps) => {
+  const StateProvider = ({ name, children }: IStateProviderProps) => {
     // Recupera o estado do local storage
     const persistedState = window.localStorage.getItem(name);
 
